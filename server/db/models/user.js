@@ -18,11 +18,39 @@ var schema = new mongoose.Schema({
         token: String,
         tokenSecret: String
     },
+    braintree: {
+        environment:  {type: String, default: 'braintree.Environment.Sandbox'},
+        merchantId:   String,
+        publicKey:    String,
+        privateKey:   String
+    },
     facebook: {
         id: String
     },
     google: {
         id: String
+    },
+    goals: {
+        name: String,
+        cost: Number,
+        plan: {
+            startDate: {type: Date, default: Date},
+            endDate: Date,
+            withdrawalFrequency: {type: String, enum: ['weekly', 'bi-weekly', 'monthly']},
+            installmentAmount: Number,
+            installmentsRemaining: Number,
+            contributors: [{
+                name: String,
+                contributionAmount: Number,
+                twitterHandle: String,
+                email: String
+            }]
+        }
+    },
+    financials: {
+        netIncome: {type: Number, default: 0},
+        fixedExpenses: {type: Number, default: 0},
+        disposableIncome: {type: Number, default: 0}
     }
 });
 
