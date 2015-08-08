@@ -11,5 +11,11 @@ app.config(function ($stateProvider) {
 
 app.controller('DashboardController', function ($scope) {
 
+    $scope.user = {
+      netIncome: '',
+      costOfLiving: '',
+      disposableIncome: '',
+      installment: ''
+    };
 
 });
