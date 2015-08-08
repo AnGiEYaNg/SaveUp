@@ -9,7 +9,7 @@
             </li>
         </ul>
         
-        <button ng-show="!user" class="btn btn-default btn-large btn-info fa fa-twitter-plus-square fa-lg" onClick="window.location='/auth/twitter';"><h5>Login with Twitter</h5></button>
+        <button ng-show="!user" class="btn btn-default btn-large btn-info fa fa-twitter-square fa-lg pull-right" onClick="window.location='/auth/twitter';">&nbsp Login with Twitter</button>
 
         <div ng-show="user" class="welcome">
             <span>Welcome, {{ user.email }}!</span>
