@@ -10,6 +10,7 @@ module.exports = function (app) {
     var npmPath = path.join(root, './node_modules');
     var publicPath = path.join(root, './public');
     var browserPath = path.join(root, './browser');
+    var uiBootstrapPath = path.join(root, './node_modules/angular-bootstrap/ui-bootstrap-tpls.min.js');
 
     app.use(favicon(app.getValue('faviconPath')));
     app.use(express.static(uiBootstrapPath));

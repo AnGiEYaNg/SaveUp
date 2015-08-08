@@ -13,7 +13,7 @@ var minifyCSS = require('gulp-minify-css');
 var ngAnnotate = require('gulp-ng-annotate');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
-var eslint = require('gulp-eslint');
+// var eslint = require('gulp-eslint');
 var mocha = require('gulp-mocha');
 var karma = require('karma').server;
 var istanbul = require('gulp-istanbul');
@@ -30,16 +30,16 @@ gulp.task('reloadCSS', function () {
     return gulp.src('./public/style.css').pipe(livereload());
 });
 
-gulp.task('lintJS', function () {
+// gulp.task('lintJS', function () {
 
-    return gulp.src(['./browser/js/**/*.js', './server/**/*.js'])
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failOnError());
+//     return gulp.src(['./browser/js/**/*.js', './server/**/*.js'])
+//         .pipe(eslint())
+//         .pipe(eslint.format())
+//         .pipe(eslint.failOnError());
 
-});
+// });
 
-gulp.task('buildJS', ['lintJS'], function () {
+gulp.task('buildJS', [], function () {
     return gulp.src(['./browser/js/app.js', './browser/js/**/*.js'])
         .pipe(plumber())
         .pipe(sourcemaps.init())
@@ -159,7 +159,7 @@ gulp.task('default', function () {
         runSeq('buildCSS', 'reloadCSS');
     });
 
-    gulp.watch('server/**/*.js', ['lintJS']);
+    gulp.watch('server/**/*.js', []);
 
     // Reload when a template (.html) file changes.
     gulp.watch(['browser/**/*.html', 'server/app/views/*.html'], ['reload']);
