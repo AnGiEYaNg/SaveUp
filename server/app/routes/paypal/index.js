@@ -20,37 +20,10 @@ var ensureAuthenticated = function (req, res, next) {
     }
 };
 
+var currentPayment;
 var paypalApiRoot = 'https://api.sandbox.paypal.com';
 var ourReturnUrl = "http://127.0.0.1:1337/api/paypal/transaction/finished";
 var ourCancelUrl = "http://127.0.0.1:1337/api/paypal/transaction/cancelled";
-
-var getPaypalToken = function () {
-  var target = '/v1/oauth2/token';
-  var tokenRoute = paypalApiRoot + target;
-
-
-
-  // var options = {
-  //   method: 'POST',
-  //   url: tokenRoute,
-  //   headers: {
-  //     'User-Agent': 'request'
-  //   }
-  // };
-
-  // var data = {
-  //   grant_type: 'client_credentials'
-  // };
-
-  // function callback(error, response, body) {
-  //   if (!error && response.statusCode == 200) {
-  //     var info = JSON.parse(body);
-  //     console.log(info.stargazers_count + " Stars");
-  //     console.log(info.forks_count + " Forks");
-  //   }
-  // }
-
-};
 
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
@@ -58,7 +31,7 @@ paypal.configure({
   'client_secret': paypalInfo.Secret
 });
 
-var currentPayment;
+// router.
 
 router.get('/test', function (req, res) {
 
