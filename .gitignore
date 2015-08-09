@@ -6,3 +6,4 @@ public
 coverage
 server/env/development.js
 server/app/routes/braintree/braintreeInfo.js
+server/app/routes/paypal/paypalInfo.js

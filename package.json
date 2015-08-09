@@ -10,6 +10,7 @@
   "dependencies": {
     "angular": "^1.4.0",
     "angular-bootstrap": "^0.12.0",
+    "angular-material": "^0.10.0",
     "angular-mocks": "^1.4.0",
     "angular-ui-router": "^0.2.15",
     "babel": "^5.0.12",
@@ -17,6 +18,7 @@
     "body-parser": "^1.12.0",
     "bootstrap": "^3.3.4",
     "braintree": "^1.27.0",
+    "braintree-web": "^2.11.2",
     "chai": "^2.1.0",
     "chalk": "^1.0.0",
     "connect-mongo": "^0.7.0",
@@ -53,6 +55,7 @@
     "passport-google-oauth": "^0.1.5",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.2",
+    "paypal-rest-sdk": "^1.6.0",
     "run-sequence": "^1.0.2",
     "serve-favicon": "^2.2.0",
     "sinon": "^1.13.0",

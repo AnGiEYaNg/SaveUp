@@ -3,7 +3,19 @@
 }
 
 body {
-  background: #fdfdfd;
+  // background-image: url("http://i.imgur.com/5ff232m.jpg?1");
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(http://hdwimg.com/wp-content/uploads/2015/06/20/switzerland-river-matt-loiacono-hd-wallpaper.jpg) no-repeat;
+  background-size: cover;
 }
 
 @mixin clearfix {
@@ -25,3 +37,4 @@ body {
 @import 'about/main';
 @import 'tutorial/main';
 @import 'login/main';
+@import 'dashboard/main';

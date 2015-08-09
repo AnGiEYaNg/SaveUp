@@ -1,13 +1,20 @@
-<div id="config-payments">
-    <div class="row">
-        <div class="col-md-12">
-        	<p>Now that you've logged in, let's config your payments!</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-        	
-        </div>
-    </div>
-</div>
-<script src="node_modules/braintree/lib/braintree.js"></script>
+<md-card>
+	<md-card-content>
+    	<p>Now that you've logged in, let's config your payments!</p>
+    	<span><p ng-bind="message"></p></span>
+    	
+    	<div class="dropin-container" ng-show="showDropinContainer">
+    	  <form name="payment">
+    	    <md-input-container>
+    	      <label>Amount (XX.XX)</label>
+    	      <input type="number" ng-model="amount"/>
+    	    </md-input-container>
+
+    	    <!-- Add Dropin here -->
+    	    <div id="checkout"></div>
+
+    	    <md-button class="md-raised md-primary" type="submit">Pay Now</md-button>
+    	  </form>
+    	</div>
+	</md-card-content>
+</md-card>

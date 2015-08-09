@@ -20,6 +20,13 @@ var ensureAuthenticated = function (req, res, next) {
     }
 };
 
+//Enable CORS
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 var gateway = braintree.connect({
     environment:  braintree.Environment.Sandbox,
     merchantId:   braintreeInfo.merchantId,

@@ -2,9 +2,9 @@ module.exports = {
   "DATABASE_URI": "mongodb://localhost:27017/saveup",
   "SESSION_SECRET": "Optimus Prime is my real dad",
   "TWITTER": {
-    "consumerKey": "INSERT_TWITTER_CONSUMER_KEY_HERE",
-    "consumerSecret": "INSERT_TWITTER_CONSUMER_SECRET_HERE",
-    "callbackUrl": "INSERT_TWITTER_CALLBACK_HERE"
+    "consumerKey": "AwYKh3ly6sdHEqNAlIYWDCR9v",
+    "consumerSecret": "vRMLMyEV1Xn2hqgsRfC4MfHpbbwRYEg8KDl3zlAQ5XlbI55CLi",
+    "callbackUrl": "http://127.0.0.1:1337/auth/twitter/callback"
   },
   "FACEBOOK": {
     "clientID": "INSERT_FACEBOOK_CLIENTID_HERE",
@@ -15,11 +15,5 @@ module.exports = {
     "clientID": "INSERT_GOOGLE_CLIENTID_HERE",
     "clientSecret": "INSERT_GOOGLE_CLIENT_SECRET_HERE",
     "callbackURL": "INSERT_GOOGLE_CALLBACK_HERE"
-  },
-  "BRAINTREE": {
-    "environment":  "braintree.Environment.Sandbox",
-    "merchantId":   '9kd9p2rt5fj8kghv',
-    "publicKey":    '9q9q7tr9qbp9rgrp',
-    "privateKey":   'dad4a259547ddd327e65c3a291323bda'
   }
 };
