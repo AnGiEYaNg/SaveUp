@@ -18,12 +18,6 @@ var schema = new mongoose.Schema({
         token: String,
         tokenSecret: String
     },
-    braintree: {
-        environment:  {type: String, default: 'braintree.Environment.Sandbox'},
-        merchantId:   String,
-        publicKey:    String,
-        privateKey:   String
-    },
     facebook: {
         id: String
     },
@@ -44,6 +38,10 @@ var schema = new mongoose.Schema({
                 contributionAmount: Number,
                 twitterHandle: String,
                 email: String
+            }],
+            paymentsSoFar: [{
+                date: Date,
+                amount: Number
             }]
         }
     },
