@@ -1,6 +1,9 @@
 <section id="home" class="main">
 	<div class="med-col-1">
-		<h1>Time to SaveUp for <span>{{ wanted }}</span></h1>
+		<h1>Time to SaveUp for: 
+			<br> 
+			<span>{{ wanted }}</span>
+		</h1>
 		<form id="initial-form" name="initialForm" ng-submit="initialForm.$valid && enterPlan(plan)">
 
 		    <alert type="danger" ng-show="error">
