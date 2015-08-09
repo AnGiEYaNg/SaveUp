@@ -3,6 +3,7 @@
 }
 
 body {
+  font-family: 'Montserrat', sans-serif;
   // background-image: url("http://i.imgur.com/5ff232m.jpg?1");
   position: fixed;
   top: 50%;
@@ -14,7 +15,7 @@ body {
   z-index: -100;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  background: url(http://hdwimg.com/wp-content/uploads/2015/06/20/switzerland-river-matt-loiacono-hd-wallpaper.jpg) no-repeat;
+  background: url('http://hdwimg.com/wp-content/uploads/2015/06/20/switzerland-river-matt-loiacono-hd-wallpaper.jpg') no-repeat;
   background-size: cover;
 }
 
@@ -26,7 +27,7 @@ body {
   }
 }
 
-#main {
+.main {
   padding-top: 60px;
   width: 1200px;
   margin: 0 auto;
