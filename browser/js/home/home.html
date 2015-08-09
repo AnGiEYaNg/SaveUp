@@ -1,9 +1,27 @@
-<section id="home">
-	<div>
-		<h2>Time to SaveUp!</h2>
-		<form action="demo_form.asp">
-		  <input type="text" name="fname"><br>
-		  <input type="submit" value="Submit">
+<section id="home" class="main">
+	<div class="med-col-1">
+		<h1>Time to SaveUp for <span>{{ wanted }}</span></h1>
+		<form id="initial-form" name="initialForm" ng-submit="initialForm.$valid && enterPlan(plan)">
+
+		    <alert type="danger" ng-show="error">
+		        {{ error }}
+		    </alert>
+
+		    <div class="form-group">
+<!-- 		        <label for="email">Email address</label> -->
+		        <input type="text" ng-model="login.email" class="form-control" id="email" placeholder="I would like to save up for...">
+		    </div>
+<!-- 		    <div class="form-group">
+		        <label for="login-password">Password</label>
+		        <input type="password" ng-model="login.password" class="form-control" id="login-password" placeholder="Password">
+		    </div> -->
+		    <div class="pull-right">
+		    	<md-button class="btn1"> Start Saving </md-button>
+			    <!-- <button type="submit" class="btn btn-danger">Start Saving</button> -->
+			    <h4>
+			    	Or proceed to log in!
+			    </h4>
+		    </div>
 		</form>
 	</div>
 	
