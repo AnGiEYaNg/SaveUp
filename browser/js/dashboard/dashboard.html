@@ -1,33 +1,35 @@
-<section id="dashboard">
+<section id="dashboard main">
     <md-content class="md-padding">
       <md-card>
-          <md-card-content>
-            
-            <div layout="row">
-              <p>Trip to Hawaii</p>
-              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://saveup.io/users/racheljy" data-text="Hey! I'm saving towards a [insert goal]! You can contribute so I can reach my goal at" data-size="large">Tweet</a>
-            </div>
-            <md-input-container class="md-icon-float" >
-              <!-- Use floating label instead of placeholder -->
-              <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="netIncome"></md-icon>
-              <input ng-model="user.netIncome" type="text" placeholder="Net Income" ng-required="true">
-            </md-input-container>
-            <md-input-container>
-              <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
-              <input ng-model="user.costOfLiving" type="text" placeholder="Cost of Living" ng-required="true">
-            </md-input-container>
-            <md-input-container >
-              <!-- Use floating placeholder instead of label -->
-              <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="disposableIncome"></md-icon>
-              <input ng-model="user.disposableIncome" type="disposableIncome" placeholder="Disposable Income" ng-required="true">
-            </md-input-container>
-            <md-input-container>
-              <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
-              <input ng-model="user.installment" type="text" placeholder="Installment" ng-required="true" >
-            </md-input-container>
-          </md-card-content>
-
-        
-      </md-card>
+        <md-card-content>
+        <p>Trip to Hawaii</p>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://saveup.io/users/racheljy" data-text="Hey! I'm saving towards a [insert goal]! You can contribute so I can reach my goal at" data-size="large">Tweet</a>
+          <md-input-container>
+            <!-- Use floating label instead of placeholder -->
+            <md-icon>favorite</md-icon>
+            <input ng-model="user.financials.netIncome" type="text" placeholder="Net Income" ng-required="true">
+          </md-input-container>
+          <md-input-container>
+            <md-icon>home</md-icon>
+            <input ng-model="user.financials.fixedExpenses" type="text" placeholder="Fixed Expenses" ng-required="true">
+          </md-input-container>
+          <md-input-container >
+            <!-- Use floating placeholder instead of label -->
+            <md-icon>credit_card</md-icon>
+            <input ng-model="user.financials.disposableIncome" type="disposableIncome" placeholder="Disposable Income" ng-required="true">
+          </md-input-container>
+          <md-input-container>
+            <md-icon>event</md-icon>
+            <input ng-model="user.goals.plan.installmentAmount" type="text" placeholder="Amount of Installment" ng-required="true" >
+          </md-input-container>
+          <md-radio-group ng-model="user.goals.plan.withdrawalFrequency" layout="row">           
+            <md-radio-button value="2" class="md-primary"> biweekly</md-radio-button>
+            <md-radio-button value="1"> monthly</md-radio-button>
+          </md-radio-group>
+          <p ng-show="formFilled">It takes {{time}} months to reach your goal!</p>    
+        </md-card-content>
+      </md-card>      
+      <md-button class="md-raised" ng-click="submit()">Add plan</md-button>
     </md-content>
+
 </section>
