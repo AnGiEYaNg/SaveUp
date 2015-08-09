@@ -1,12 +1,35 @@
 #home {
-  fullstack-logo {
-    padding-top: 30px;
-    width: 150px;
-    margin: 0 auto;
-  }
-  h1 {
-    margin-top: 40px;
-    text-align: center;
-  }
+	fullstack-logo {
+	padding-top: 30px;
+	width: 150px;
+	margin: 0 auto;
+	}
+	h1 {
+		font-family: 'Chewy', cursive;
+		font-size: 80px;
+		color: #C0C0C0;
+		margin-top: 40px;
+		text-align: center;
+		span {
+			color: #00FFFF;
+		}
+	}
+
+	#initial-form {
+	  width: 60%;
+	  margin: 0 auto;
+	}
+
+	h4 {
+		color: #FF0000;
+		font-weight: bold;
+	}
+	.btn1 {
+	  color : white;
+	  background-color: #FF4500;
+	  border-radius: 10px;
+	  font-size: 20px;
+	}
+
 }
 

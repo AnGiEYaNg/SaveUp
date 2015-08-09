@@ -2,13 +2,14 @@ navbar {
 
   display: block;
   background: rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid black;
+  // border-bottom: 1px dashed black;
   box-shadow: 1px 1px 14px -3px black;
 
   .container {
     width: 91%;
     max-width: 1340px;
-    padding-top: 20px;
+    padding-top: 10px;
+
   }
 
   fullstack-logo {
@@ -30,7 +31,7 @@ navbar {
     }
     &:hover {
       background: none;
-      color: #f31214;
+      color: red;
     }
     &:focus {
       background: none;
@@ -38,8 +39,13 @@ navbar {
   }
 
   .login-button {
+    &:hover {
+      background: none;
+      color: red;
+    }
+    color: white;
     float: right;
-    border: 1px solid black;
+    // border: 1px solid black;
     margin-top: 10px;
     background: none;
     outline: none !important;
