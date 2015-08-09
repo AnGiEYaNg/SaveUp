@@ -72,6 +72,7 @@ $scope.user.goals.cost = JSON.parse(localStorage.getItem('tempPlan')).cost;
   $interval($scope.calcTime, 30);
 
   $scope.submit = function (user) {
+    console.log('user in submit', user)
     planFactory.savePlan(user)
   }
 

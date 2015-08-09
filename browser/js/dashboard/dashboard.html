@@ -1,10 +1,11 @@
 <section id="dashboard main">
+    <form id="plan-form" name="planForm">
     <md-content class="md-padding">
       <md-card>
         <md-card-content>
-        <p>{{user.goals.name}} - {{user.goals.cost}}</p>
-          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://saveup.io/users/racheljy" data-text="Hey! I'm saving towards a [insert goal]! You can contribute so I can reach my goal at" data-size="large">Tweet</a>
-          <md-input-container>
+        <p>{{user.goals.name}} - Goal: ${{user.goals.cost}}</p>
+<!--           <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://saveup.io/users/racheljy" data-text="Hey! I'm saving towards a [insert goal]! You can contribute so I can reach my goal at" data-size="large">Tweet</a>
+ -->          <md-input-container>
             <!-- Use floating label instead of placeholder -->
             <md-icon>favorite</md-icon>
             <input ng-model="user.financials.netIncome" type="text" placeholder="Net Income" ng-required="true">
@@ -21,12 +22,12 @@
             <md-radio-button value="2" class="md-primary"> biweekly</md-radio-button>
             <md-radio-button value="1"> monthly</md-radio-button>
           </md-radio-group>
-          <p>You have disposable income of ${{user.financials.disposableIncome}}.</p>
+          <p ng-show="formFilled">You have disposable income of ${{user.financials.disposableIncome}}.</p>
           <p ng-show="formFilled">It takes {{time}} months to reach your goal!</p>
           <p ng-show="formFilled">And it takes {{user.goals.plan.installmentsRemaining}} installments to reach your goal!</p>                  
         </md-card-content>
       </md-card>      
-      <md-button class="md-raised" ng-click="submit()">Add plan</md-button>
+      <md-button class="md-raised" ng-click="submit(user)">Add plan</md-button>
     </md-content>
-
+  </form>
 </section>
