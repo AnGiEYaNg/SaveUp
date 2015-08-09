@@ -13,11 +13,6 @@
             <md-icon>home</md-icon>
             <input ng-model="user.financials.fixedExpenses" type="text" placeholder="Fixed Expenses" ng-required="true">
           </md-input-container>
-          <md-input-container >
-            <!-- Use floating placeholder instead of label -->
-            <md-icon>credit_card</md-icon>
-            <input ng-model="user.financials.disposableIncome" type="disposableIncome" placeholder="Disposable Income" ng-required="true">
-          </md-input-container>
           <md-input-container>
             <md-icon>event</md-icon>
             <input ng-model="user.goals.plan.installmentAmount" type="text" placeholder="Amount of Installment" ng-required="true" >
@@ -26,7 +21,9 @@
             <md-radio-button value="2" class="md-primary"> biweekly</md-radio-button>
             <md-radio-button value="1"> monthly</md-radio-button>
           </md-radio-group>
-          <p ng-show="formFilled">It takes {{time}} months to reach your goal!</p>    
+          <p>You have disposable income of ${{user.financials.disposableIncome}}.</p>
+          <p ng-show="formFilled">It takes {{time}} months to reach your goal!</p>
+          <p ng-show="formFilled">And it takes {{user.goals.plan.installmentsRemaining}} installments to reach your goal!</p>                  
         </md-card-content>
       </md-card>      
       <md-button class="md-raised" ng-click="submit()">Add plan</md-button>
