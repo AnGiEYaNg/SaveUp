@@ -30,7 +30,7 @@ var schema = new mongoose.Schema({
         plan: {
             startDate: {type: Date, default: Date},
             endDate: Date,
-            withdrawalFrequency: {type: String, enum: ['weekly', 'bi-weekly', 'monthly']},
+            withdrawalFrequency: {type: Number},//enum: ['weekly', 'bi-weekly', 'monthly']
             installmentAmount: Number,
             installmentsRemaining: Number,
             contributors: [{
