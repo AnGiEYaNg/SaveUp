@@ -10,8 +10,8 @@ app.config(function ($stateProvider) {
 
 app.controller('configPaymentsCtrl', function ($scope) {
 
-    $scope.selected;
-    
+    $scope.optSelected;
+
     $scope.paymentOptions = [
         { label: 'Paypal', value: 'Paypal'},
         { label: 'Credit Card', value: 'CC'}

@@ -10,7 +10,7 @@
     	      <input type="number" ng-model="amount"/>
     	    </md-input-container>
 
-    	    <md-radio-group ng-model="selected">
+    	    <md-radio-group ng-model="optSelected">
     	      <md-radio-button 
     	      ng-repeat="opt in paymentOptions" 
     	      ng-value="opt.value" 
@@ -20,6 +20,7 @@
     	    </md-radio-group>
 
     	    <md-button class="md-raised md-primary" type="submit">Pay Now</md-button>
+    	  	{{selected}}
     	  </form>
     	</div>
 	</md-card-content>
