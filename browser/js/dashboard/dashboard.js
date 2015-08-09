@@ -55,8 +55,8 @@ $scope.goalName = planFactory.getTempPlan();
 
   $interval($scope.calcTime, 30);
 
-  $scope.submit = function () {
-
+  $scope.submit = function (user) {
+    planFactory.savePlan(user)
   }
 
 });

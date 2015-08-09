@@ -9,6 +9,12 @@ app.factory('planFactory', function ($http, $log) {
         },
         getTempPlan: function(){
             return tempPlan;
+        },
+        savePlan: function(plan) {
+            return $http.put("/api/dashboard", plan)
+            .then(function (response) {
+                return response.data;
+            });
         }
     };
 
