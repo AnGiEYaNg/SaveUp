@@ -12,20 +12,9 @@ app.controller('homeCtrl', function($scope, $state, $interval, planFactory, $log
 	// $scope.wanted;
   $scope.showAlert = false;
 
-	$scope.enterPlan = function(plan){
-    $log.info('hit plan', plan)
-    if(!$scope.newPlan) return $scope.showAlert = true;
-    else{
-  		return planFactory.setTempPlan(plan);
-      // console.log('hi', window.location)
-      // $state.go("window.location='/auth/twitter';")
-      
-    }
-	}
-
   $scope.enterPlan = function(plan){
 
-    if(!$scope.newPlan) return $scope.showAlert = true;
+    if(!$scope.newPlan.name || !$scope.newPlan.cost) return $scope.showAlert = true;
     else{
       var modalInstance = $modal.open({
         templateUrl: 'js/home/homeModal.html',
@@ -60,7 +49,7 @@ app.controller('homeCtrl', function($scope, $state, $interval, planFactory, $log
 
 app.controller('deleteModalCtrl', function($scope, planFactory, $modalInstance, plan, $state, $log) {
   // console.log('hit modal controller',product)
-  $log.info('hit control', plan)
+  $log.info('hit control', JSON.stringify(plan))
 
   localStorage.setItem('tempPlan', JSON.stringify(plan));
 

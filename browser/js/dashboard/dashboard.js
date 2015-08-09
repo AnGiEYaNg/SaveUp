@@ -27,17 +27,33 @@ app.controller('DashboardController', function ($scope, $interval, planFactory) 
       disposableIncome: ''
     }
   };
-
-$scope.goalName = JSON.parse(localStorage.getItem('tempPlan'))
+$scope.user.goals.name = JSON.parse(localStorage.getItem('tempPlan')).name;
+$scope.user.goals.cost = JSON.parse(localStorage.getItem('tempPlan')).cost;
 
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 
 
-  $scope.user.goals.plan.installmentsRemaining = $scope.user.goals.cost/$scope.user.goals.plan.installmentAmount
 
   $scope.calcTime = function(){
-    if(calculator())
-    $scope.time = Number($scope.user.goals.cost) / (Number($scope.user.goals.plan.installmentAmount) * Number($scope.user.goals.plan.withdrawalFrequency))
+    if(calculator()){
+      console.log('in calcTime');
+
+      var cost = Number($scope.user.goals.cost);
+      var installAmt = Number($scope.user.goals.plan.installmentAmount);
+      var withdrawFreq = Number($scope.user.goals.plan.withdrawalFrequency);
+
+      console.log('cost', typeof cost, cost);
+      console.log('installAmt', typeof installAmt, installAmt);
+      console.log('withdrawFreq', typeof withdrawFreq, withdrawFreq);
+
+      var time = cost / (installAmt*withdrawFreq);
+
+
+      $scope.time = Number($scope.user.goals.cost) / (Number($scope.user.goals.plan.installmentAmount) * Number($scope.user.goals.plan.withdrawalFrequency))
+      $scope.user.goals.plan.installmentsRemaining = Number($scope.user.goals.cost)/Number($scope.user.goals.plan.installmentAmount)
+      $scope.user.financials.disposableIncome = Number($scope.user.financials.netIncome) - Number($scope.user.financials.fixedExpenses)
+      
+    }
   }
 
   $scope.formFilled = false;
@@ -55,8 +71,8 @@ $scope.goalName = JSON.parse(localStorage.getItem('tempPlan'))
 
   $interval($scope.calcTime, 30);
 
-  $scope.submit = function () {
-
+  $scope.submit = function (user) {
+    planFactory.savePlan(user)
   }
 
 });
