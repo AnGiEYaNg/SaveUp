@@ -17,6 +17,32 @@ body {
   transform: translateX(-50%) translateY(-50%);
   background: url('http://hdwimg.com/wp-content/uploads/2015/06/20/switzerland-river-matt-loiacono-hd-wallpaper.jpg') no-repeat;
   background-size: cover;
+
+  #barbar {
+    margin-top: 25px;
+    margin-bottom: 30px;
+    margin-right: 275px;
+    width: 60%;
+    height: 30px;
+  }
+
+  #contributorBlock {
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 2px 2px 14px -3px black;
+    color: white;
+
+    h2 {
+      text-align: center;
+    }
+    
+    li {
+      margin-left: 300px;
+      font-size: 20px;
+    }
+
+  }
+
 }
 
 @mixin clearfix {
