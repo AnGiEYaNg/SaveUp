@@ -17,7 +17,7 @@ app.factory('planFactory', function ($http, $log) {
             console.log('in the factory')
             return $http.put("/api/dashboard", plan)
             .then(function (response) {
-                return response.data;
+                return;
             });
         }
     };

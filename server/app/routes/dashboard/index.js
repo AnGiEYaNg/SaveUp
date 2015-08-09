@@ -13,6 +13,6 @@ router.put('/', function (req, res, next) {
   User.findByIdAndUpdate(req.user._id, req.body).exec()
   .then(function (user) {
     console.log('user in the route', user)
-    res.send(user);
+    res.end();
   })
 });
