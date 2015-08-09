@@ -7,16 +7,21 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('homeCtrl', function($scope, $state, $interval){
+app.controller('homeCtrl', function($scope, $state, $interval, planFactory, $log){
 
 	// $scope.wanted;
+  $scope.showAlert = false;
 
 	$scope.enterPlan = function(plan){
-		// $scope.user.goals.name  = plan;
-		$state.tempPlan = plan
-    $state.go('login')
+    $log.info('hit plan', plan)
+    if(!$scope.newPlan) return $scope.showAlert = true;
+    else{
+  		return planFactory.setTempPlan(plan);
+      // console.log('hi', window.location)
+      // $state.go("window.location='/auth/twitter';")
+      
+    }
 	}
-
 
     $scope.wanted;
     $scope.categories = [

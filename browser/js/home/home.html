@@ -4,10 +4,10 @@
 			<br> 
 			<span>{{ wanted }}</span>
 		</h1>
-		<form id="initial-form" name="initialForm" ng-submit="initialForm.$valid && enterPlan(newPlan)">
+		<form id="initial-form" name="initialForm">
 
-		    <alert type="danger" ng-show="error">
-		        {{ error }}
+		    <alert type="danger" ng-show="showAlert">
+		        Please do not leave this field empty!
 		    </alert>
 
 		    <div class="form-group">
@@ -19,11 +19,11 @@
 		        <input type="password" ng-model="login.password" class="form-control" id="login-password" placeholder="Password">
 		    </div> -->
 		    <div class="pull-right">
-		    	<md-button class="btn1"> Start Saving </md-button>
+		    	<md-button class="btn1" onClick="window.location='/auth/twitter';"> Log in with Twitter and start saving!</md-button>
 			    <!-- <button type="submit" class="btn btn-danger">Start Saving</button> -->
-			    <h4>
+<!-- 			    <h4>
 			    	Or proceed to log in!
-			    </h4>
+			    </h4> -->
 		    </div>
 		</form>
 	</div>
