@@ -1,8 +1,8 @@
-<section id="dashboard main">
+<section id="dashboard main" ng-if="editForm">
     <md-content class="md-padding">
       <md-card>
         <md-card-content>
-        <p>{{user.goals.name}} - {{user.goals.cost}}</p>
+        <h1>{{user.goals.name}} - ${{user.goals.cost}}.00</h1>
           <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://saveup.io/users/racheljy" data-text="Hey! I'm saving towards a [insert goal]! You can contribute so I can reach my goal at" data-size="large">Tweet</a>
           <md-input-container>
             <!-- Use floating label instead of placeholder -->
@@ -21,12 +21,53 @@
             <md-radio-button value="2" class="md-primary"> biweekly</md-radio-button>
             <md-radio-button value="1"> monthly</md-radio-button>
           </md-radio-group>
-          <p>You have disposable income of ${{user.financials.disposableIncome}}.</p>
+          <p ng-show="formFilled">You have disposable income of ${{user.financials.disposableIncome}}.</p>
           <p ng-show="formFilled">It takes {{time}} months to reach your goal!</p>
           <p ng-show="formFilled">And it takes {{user.goals.plan.installmentsRemaining}} installments to reach your goal!</p>                  
         </md-card-content>
       </md-card>      
       <md-button class="md-raised" ng-click="submit()">Add plan</md-button>
+    </md-content>
+
+</section>
+
+<section id="dashboarded main" ng-if="!editForm">
+    <md-content class="md-padding">
+      <md-card>
+        <md-card-content>
+        <h1>{{user.goals.name}} - {{user.goals.cost}}</h1>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://saveup.io/users/racheljy" data-text="Hey! I'm saving towards a [insert goal]! You can contribute so I can reach my goal at" data-size="large">Tweet</a>
+          <md-input-container>
+            <!-- Use floating label instead of placeholder -->
+
+              <div>
+                <md-icon>favorite</md-icon> Net Income
+              </div>
+              <p ng-model="user.financials.netIncome">${{user.financials.netIncome}}.00</p>
+            </md-input-container>
+            <md-input-container>
+            <div>
+              <md-icon>home</md-icon> Fixed Expenses
+            </div>
+              <p ng-model="user.financials.fixedExpenses">${{user.financials.fixedExpenses}}.00</p>
+            </md-input-container>
+            <md-input-container>
+            <div>
+              <md-icon>event</md-icon> Amount of Installment.
+            </div>
+              <p ng-model="user.goals.plan.installmentAmount">${{user.goals.plan.installmentAmount}}.00</p>
+            </md-input-container>
+            <md-radio-group ng-model="user.goals.plan.withdrawalFrequency" layout="row">           
+              <div>{{timeInt}}</div>
+            </md-radio-group>
+            
+            <p>You have disposable income of ${{user.financials.disposableIncome}}.00.</p>
+            <p ng-show="formFilled">It takes {{time}} months to reach your goal!</p>
+            <p ng-show="formFilled">And it takes {{user.goals.plan.installmentsRemaining}} installments to reach your goal!</p>                 
+
+        </md-card-content>
+      </md-card>      
+<!--       <md-button class="md-raised" ng-click="submit()">Add plan</md-button> -->
     </md-content>
 
 </section>
