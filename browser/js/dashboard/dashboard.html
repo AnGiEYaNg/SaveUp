@@ -6,29 +6,29 @@
           <md-input-container>
             <!-- Use floating label instead of placeholder -->
             <md-icon>favorite</md-icon>
-            <input ng-model="user.netIncome" type="text" placeholder="Net Income" ng-required="true">
+            <input ng-model="user.financials.netIncome" type="text" placeholder="Net Income" ng-required="true">
           </md-input-container>
           <md-input-container>
             <md-icon>home</md-icon>
-            <input ng-model="user.costOfLiving" type="text" placeholder="Cost of Living" ng-required="true">
+            <input ng-model="user.financials.fixedExpenses" type="text" placeholder="Fixed Expenses" ng-required="true">
           </md-input-container>
           <md-input-container >
             <!-- Use floating placeholder instead of label -->
             <md-icon>credit_card</md-icon>
-            <input ng-model="user.disposableIncome" type="disposableIncome" placeholder="Disposable Income" ng-required="true">
+            <input ng-model="user.financials.disposableIncome" type="disposableIncome" placeholder="Disposable Income" ng-required="true">
           </md-input-container>
           <md-input-container>
             <md-icon>event</md-icon>
-            <input ng-model="user.installment" type="text" placeholder="Installment" ng-required="true" >
+            <input ng-model="user.goals.plan.installmentAmount" type="text" placeholder="Amount of Installment" ng-required="true" >
           </md-input-container>
-          <md-radio-group ng-model="data.group1" layout="row">           
-            <md-radio-button value="biweekly" class="md-primary">biweekly</md-radio-button>
-            <md-radio-button value="monthly">monthly</md-radio-button>
+          <md-radio-group ng-model="user.goals.plan.withdrawalFrequency" layout="row">           
+            <md-radio-button value="2" class="md-primary"> biweekly</md-radio-button>
+            <md-radio-button value="1"> monthly</md-radio-button>
           </md-radio-group>
-          <p>It takes 3 days to reach your goal!</p>    
+          <p ng-show="formFilled">It takes {{time}} months to reach your goal!</p>    
         </md-card-content>
       </md-card>      
-      <md-button class="md-raised">Add plan</md-button>
+      <md-button class="md-raised" ng-click="submit()">Add plan</md-button>
     </md-content>
 
 </section>
