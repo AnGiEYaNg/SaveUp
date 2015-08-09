@@ -7,7 +7,7 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('homeCtrl', function($scope, $state, $interval, planFactory, $log){
+app.controller('homeCtrl', function($scope, $state, $interval, planFactory, $log, $modal){
 
 	// $scope.wanted;
   $scope.showAlert = false;
@@ -22,6 +22,23 @@ app.controller('homeCtrl', function($scope, $state, $interval, planFactory, $log
       
     }
 	}
+
+  $scope.enterPlan = function(plan){
+
+    if(!$scope.newPlan) return $scope.showAlert = true;
+    else{
+      var modalInstance = $modal.open({
+        templateUrl: 'js/home/homeModal.html',
+        controller: 'deleteModalCtrl',
+        resolve: {
+          plan: function(){
+            return plan;
+          }
+        }
+      });
+      
+    }
+  }
 
     $scope.wanted;
     $scope.categories = [
@@ -38,5 +55,17 @@ app.controller('homeCtrl', function($scope, $state, $interval, planFactory, $log
 
     $scope.setWanted();
     $interval($scope.setWanted, 2000);
+
+});
+
+app.controller('deleteModalCtrl', function($scope, planFactory, $modalInstance, plan, $state, $log) {
+  // console.log('hit modal controller',product)
+  $log.info('hit control', plan)
+
+  localStorage.setItem('tempPlan', JSON.stringify(plan));
+
+  $scope.close = function () {
+    $modalInstance.close();
+  }
 
 });
