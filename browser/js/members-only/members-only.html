@@ -13,7 +13,7 @@
 						    <progressbar class="progress-striped active" value="dynamic" type="success">{{dynamic}}%</progressbar>
 						</div>
 					</div>
-        <h1>{{user.goals.name}} - {{user.goals.cost}}</h1>
+        <h1>{{user.goals.name}}: ${{user.goals.cost}}</h1>
           <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://saveup.io/users/racheljy" data-text="Hey! I'm saving towards a {{user.goals.name}}! You can contribute so I can reach my goal!" data-size="large">Tweet</a>
             <!-- Use floating label instead of placeholder -->
 
@@ -29,7 +29,7 @@
               <md-icon>event</md-icon> Amount of Installment.
             </div>
               <p>${{user.goals.plan.installmentAmount}}.00</p>
-             <div><p>{{user.goals.plan.withdrawalFrequency}}</p></div>
+             <div><p>You'll be making {{user.goals.plan.withdrawalFrequency}} installment(s) total.</p></div>
             
 <!--             <p>You have disposable income of ${{user.financials.disposableIncome}}.00.</p>
             <p>It takes {{time}} months to reach your goal!</p> -->
