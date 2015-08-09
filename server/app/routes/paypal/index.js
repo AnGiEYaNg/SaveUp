@@ -105,7 +105,8 @@ router.get('/transaction/finished', function (req, res) {
       foundUser.goals.plan.paymentsSoFar.push(transactionForSave);
       foundUser.save(function (err) {
         if (err) throw err;
-        res.json(resp);
+        res.redirect('/members-area');
+        // res.json(resp);
       });
     })
     .then(null, function (err) {

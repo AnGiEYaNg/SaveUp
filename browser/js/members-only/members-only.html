@@ -1,43 +1,39 @@
 <div ng-controller="ProgressDemoCtrl">
-	<md-content class="md-padding">
-		<md-card>
-			<md-card-content>
+	<md-content class="md-padding" style="width:80%; color:white; margin:0 auto; background-color:rgba(25,25,25,0.3);">
+		<md-card style="background-color: rgba(25,25,25,.4);">
+			<md-card-content >
 				<div class="container-fluid">
 					<div class="row">
 						
 
 						<div class="med-col-2">
-							<h3>Current Progress:</h3>
+							<h3>Current Progress: <b>{{user.goals.name}}: ${{user.goals.cost}}</b></h3>
 						</div>
 						<div id="barbar" class="med-col-8 pull-right">
 						    <progressbar class="progress-striped active" value="dynamic" type="success">{{dynamic}}%</progressbar>
 						</div>
 					</div>
-        <h1>{{user.goals.name}}: ${{user.goals.cost}}</h1>
-          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://saveup.io/users/racheljy" data-text="Hey! I'm saving towards a {{user.goals.name}}! You can contribute so I can reach my goal!" data-size="large">Tweet</a>
+          <a href="https://twitter.com/share" class="twitter-share-button pull-right" data-url="http://saveup.io/users/racheljy" data-text="Hey! I'm saving towards a {{user.goals.name}}! You can contribute so I can reach my goal!" data-size="large">Tweet</a>
             <!-- Use floating label instead of placeholder -->
 
               <div>
-                <md-icon>favorite</md-icon> Net Income
+                <md-icon style="color:white; fill:white;">favorite</md-icon> Net Income
+              <span>${{user.financials.netIncome}}.00</span>
               </div>
-              <p>${{user.financials.netIncome}}.00</p>
             <div>
-              <md-icon>home</md-icon> Fixed Expenses
+              <md-icon style="color:white;">home</md-icon> Fixed Expenses
+              <span>${{user.financials.fixedExpenses}}.00</span>
             </div>
-              <p>${{user.financials.fixedExpenses}}.00</p>
             <div>
-              <md-icon>event</md-icon> Amount of Installment.
+              <md-icon style="color:white;">event</md-icon> Amount of Installment
+              <span>${{user.goals.plan.installmentAmount}}.00</span>
             </div>
-              <p>${{user.goals.plan.installmentAmount}}.00</p>
              <div><p>You'll be making {{user.goals.plan.withdrawalFrequency}} installment(s) total.</p></div>
             
 <!--             <p>You have disposable income of ${{user.financials.disposableIncome}}.00.</p>
             <p>It takes {{time}} months to reach your goal!</p> -->
-            <p>It takes {{user.goals.plan.installmentsRemaining}} installments to reach your goal!</p> 					
+            <p>It takes {{user.goals.plan.installmentsRemaining}} installment(s) to reach your goal!</p> 					
 				</div>
-			</md-card-content>
-		</md-card>
-	</md-content>
 
 	<div id="contributorBlock" class="container-fluid">
 		<h2> Contributions</h2>
@@ -46,6 +42,9 @@
 			<li ng-repeat="ppl in contributorsData">{{ppl.name}} --- <i class="fa fa-usd"></i>{{ppl.contributionAmount}}</li>
 		</ul>
 	</div>
+			</md-card-content>
+		</md-card>
+	</md-content>
 
 </div>
 
