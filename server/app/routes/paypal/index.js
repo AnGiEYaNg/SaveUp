@@ -9,8 +9,6 @@ var request = require('request');
 
 // var _ = require('lodash');
 
-console.log('paypal keys\n', Object.keys(paypal));
-
 var router = require('express').Router();
 module.exports = router;
 
