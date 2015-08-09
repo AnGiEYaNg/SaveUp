@@ -1,0 +1,27 @@
+<md-card>
+	<md-card-content>
+    	<p>Now that you've logged in, let's config your payments!</p>
+    	<span><p ng-bind="message"></p></span>
+
+    	<div>
+    	  <form name="payment">
+    	    <md-input-container>
+    	      <label>Amount (XX.XX)</label>
+    	      <input type="number" ng-model="amount"/>
+    	    </md-input-container>
+
+    	    <md-radio-group ng-model="optSelected">
+    	      <md-radio-button 
+    	      ng-repeat="opt in paymentOptions" 
+    	      ng-value="opt.value" 
+    	      aria-label="{{ opt.label }}">
+    	             {{ opt.label }}
+    	      </md-radio-button>
+    	    </md-radio-group>
+
+    	    <md-button class="md-raised md-primary" type="submit">Pay Now</md-button>
+    	  	{{selected}}
+    	  </form>
+    	</div>
+	</md-card-content>
+</md-card>
