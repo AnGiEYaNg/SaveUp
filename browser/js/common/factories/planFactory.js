@@ -7,7 +7,6 @@ app.factory('planFactory', function ($http, $log) {
             tempPlan = plan;
             console.log(tempPlan)
             return plan
-            // return $http.get('/auth/twitter')
         },
         getTempPlan: function(){
             $log.info('hit get', tempPlan)

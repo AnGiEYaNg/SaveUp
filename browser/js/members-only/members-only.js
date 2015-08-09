@@ -2,31 +2,17 @@ app.config(function ($stateProvider) {
 
     $stateProvider.state('membersOnly', {
         url: '/members-area',
-        template: '<img ng-repeat="item in stash" width="300" ng-src="{{ item }}" />',
-        controller: function ($scope, SecretStash) {
-            SecretStash.getStash().then(function (stash) {
-                $scope.stash = stash;
-            });
-        },
-        // The following data.authenticate is read by an event listener
-        // that controls access to this state. Refer to app.js.
+        templateUrl: 'js/members-only/members-only.html',
+        controller: 'ProgressDemoCtrl',
         data: {
             authenticate: true
         }
     });
-
 });
 
-app.factory('SecretStash', function ($http) {
+app.controller('ProgressDemoCtrl', function($scope, $state, $interval, planFactory, $log, $modal){
+    $scope.dynamic = 63;
+    $log.info('huh?', $scope.user)
 
-    var getStash = function () {
-        return $http.get('/api/members/secret-stash').then(function (response) {
-            return response.data;
-        });
-    };
-
-    return {
-        getStash: getStash
-    };
-
+    $scope.contributorsData = [{name:'Dad', contributionAmount: 5}, {name:'Mom', contributionAmount: 20}]
 });
