@@ -13,7 +13,8 @@ app.controller('homeCtrl', function($scope, $state, $interval){
 
 	$scope.enterPlan = function(plan){
 		// $scope.user.goals.name  = plan;
-		console.log(plan)
+		$state.tempPlan = plan
+    $state.go('login')
 	}
 
 

@@ -7,14 +7,15 @@ app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) 
         link: function (scope) {
 
             scope.items = [
-                { label: 'Home', state: 'home', auth: false },
+                { label: 'Home', state: 'home'},
                 // { label: 'About', state: 'about' , auth: false},
+                { label: 'About', state: 'about'},
                 { label: 'Dashboard', state: 'dashboard', auth: true },
-                { label: 'About', state: 'about' },
                 { label: 'My Progress', state: 'membersOnly', auth: true }
             ];
 
             scope.user = null;
+            console.log('this is auth', AuthService.isAuthenticated())
 
             scope.isLoggedIn = function () {
                 return AuthService.isAuthenticated();
