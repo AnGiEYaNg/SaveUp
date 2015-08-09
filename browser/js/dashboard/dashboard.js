@@ -57,6 +57,7 @@ $scope.user.goals.cost = JSON.parse(localStorage.getItem('tempPlan')).cost;
   }
 
   $scope.formFilled = false;
+  $scope.editForm = true;
   
   var calculator = function () {
     var filled = true;
@@ -69,11 +70,19 @@ $scope.user.goals.cost = JSON.parse(localStorage.getItem('tempPlan')).cost;
     return $scope.formFilled = filled;
   }
 
+
   $interval($scope.calcTime, 30);
 
   $scope.submit = function (user) {
     console.log('user in submit', user)
     planFactory.savePlan(user)
+    $scope.editForm = false;
+    // $scope.timeInt = $scope.timeInterval();
   }
+
+  // $scope.timeInterval = function(){
+  //   if($scope.user.goals.plan.withdrawalFrequency === 2)return "Bi-Weekly"
+  //   else return "Monthly"
+  // }
 
 });

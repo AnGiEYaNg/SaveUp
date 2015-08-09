@@ -1,0 +1,31 @@
+<div ng-controller="ProgressDemoCtrl">
+	<md-content class="md-padding">
+		<md-card>
+			<md-card-content>
+				<div class="container-fluid">
+					<div class="row">
+						
+
+						<div class="med-col-2">
+							<h3>Current Progress:</h3>
+						</div>
+						<div id="barbar" class="med-col-8 pull-right">
+						    <progressbar class="progress-striped active" value="dynamic" type="success">{{dynamic}}%</progressbar>
+						</div>
+
+					</div>
+				</div>
+			</md-card-content>
+		</md-card>
+	</md-content>
+
+	<div id="contributorBlock" class="container-fluid">
+		<h2> Contributions</h2>
+		<hr>
+		<ul>
+			<li ng-repeat="ppl in contributorsData">{{ppl.name}} --- <i class="fa fa-usd"></i>{{ppl.contributionAmount}}</li>
+		</ul>
+	</div>
+
+</div>
+
