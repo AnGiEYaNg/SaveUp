@@ -24,6 +24,6 @@ app.controller('ProgressDemoCtrl', function($scope, $state, $interval, planFacto
         $scope.user = user;
     });
     
-    $scope.contributorsData = [{name:'Dad', contributionAmount: 5}, {name:'Mom', contributionAmount: 20}]
+    $scope.contributorsData = [{name:'Dad', contributionAmount: '1000.00'}, {name:'Mom', contributionAmount: '600.00'}]
 
 });
