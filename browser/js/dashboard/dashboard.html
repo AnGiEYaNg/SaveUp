@@ -1,6 +1,6 @@
 <section id="dashboard main" ng-if="editForm">
   <form id="plan-form" name="planForm">
-    <md-content class="md-padding">
+    <md-content class="md-padding" style="width:80%; margin:0 auto; background-color:rgba(25,25,25,0.3);">
       <md-card>
         <md-card-content>
         <h1>{{user.goals.name}} - ${{user.goals.cost}}.00</h1>
@@ -32,27 +32,27 @@
 </section>
 
 <section id="dashboarded main" ng-if="!editForm">
-    <md-content class="md-padding">
-      <md-card>
+    <md-content class="md-padding" style="width:80%; color: white; margin:0 auto; background-color:rgba(25,25,25,0.3);">
+      <md-card style="background-color: rgba(25,25,25,.4);">
         <md-card-content>
         <h1>{{user.goals.name}} - {{user.goals.cost}}</h1>
           <md-input-container>
             <!-- Use floating label instead of placeholder -->
 
               <div>
-                <md-icon>favorite</md-icon> Net Income
+                <md-icon style="color:white; fill:white;">favorite</md-icon> Net Income
               </div>
               <p ng-model="user.financials.netIncome">${{user.financials.netIncome}}.00</p>
             </md-input-container>
             <md-input-container>
             <div>
-              <md-icon>home</md-icon> Fixed Expenses
+              <md-icon style="color:white; fill:white;">home</md-icon> Fixed Expenses
             </div>
               <p ng-model="user.financials.fixedExpenses">${{user.financials.fixedExpenses}}.00</p>
             </md-input-container>
             <md-input-container>
             <div>
-              <md-icon>event</md-icon> Amount of Installment.
+              <md-icon style="color:white; fill:white;">event</md-icon> Amount of Installment
             </div>
               <p ng-model="user.goals.plan.installmentAmount">${{user.goals.plan.installmentAmount}}.00</p>
             </md-input-container>
@@ -61,8 +61,8 @@
             </md-radio-group>
             
             <p>You have disposable income of ${{user.financials.disposableIncome}}.00.</p>
-            <p ng-show="formFilled">It takes {{time}} months to reach your goal!</p>
-            <p ng-show="formFilled">And it takes {{user.goals.plan.installmentsRemaining}} installments to reach your goal!</p>                 
+            <p ng-show="formFilled">It takes {{time}} month(s) to reach your goal!</p>
+            <p ng-show="formFilled">And it takes {{user.goals.plan.installmentsRemaining}} installment(s) to reach your goal!</p>                 
 
         </md-card-content>
       </md-card>      
