@@ -27,11 +27,9 @@ app.controller('DashboardController', function ($scope, $interval, planFactory) 
       disposableIncome: ''
     }
   };
-$scope.user.goals.name = JSON.parse(localStorage.getItem('tempPlan')).name;
-$scope.user.goals.cost = JSON.parse(localStorage.getItem('tempPlan')).cost;
 
-  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-
+  $scope.user.goals.name = JSON.parse(localStorage.getItem('tempPlan')).name;
+  $scope.user.goals.cost = JSON.parse(localStorage.getItem('tempPlan')).cost;
 
 
   $scope.calcTime = function(){
@@ -57,6 +55,7 @@ $scope.user.goals.cost = JSON.parse(localStorage.getItem('tempPlan')).cost;
   }
 
   $scope.formFilled = false;
+  $scope.editForm = true;
   
   var calculator = function () {
     var filled = true;
@@ -69,10 +68,19 @@ $scope.user.goals.cost = JSON.parse(localStorage.getItem('tempPlan')).cost;
     return $scope.formFilled = filled;
   }
 
+
   $interval($scope.calcTime, 30);
 
   $scope.submit = function (user) {
+    console.log('user in submit', user)
     planFactory.savePlan(user)
+    $scope.editForm = false;
+    // $scope.timeInt = $scope.timeInterval();
   }
+
+  // $scope.timeInterval = function(){
+  //   if($scope.user.goals.plan.withdrawalFrequency === 2)return "Bi-Weekly"
+  //   else return "Monthly"
+  // }
 
 });
